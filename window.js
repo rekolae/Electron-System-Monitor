@@ -1,14 +1,18 @@
 const greetingElement = document.getElementById("greeting")
 const greetings = [
-    "Hello1!",
-    "Hello2!",
-    "Hello3!",
-    "Hello4!",
-    "Hello5!",
-    "Hello6!",
-    "Hello7!",
-    "Hello8!",
-    "Hello9!"
+    "Hello!",
+    "Bonjour!",
+    "Hola!",
+    "Konnichiwa!",
+    "Guten Tag!",
+    "Anyoung haseyo!",
+    "Asalaam alaikum!",
+    "God dag!",
+    "Zdravstvuyte!",
+    "namaste!",
+    "buon giorno!",
+    "zdravo!",
+    "Shalom!"
 ]
 
 const changeGreeting = () => {

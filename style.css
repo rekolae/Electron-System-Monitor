@@ -1,0 +1,14 @@
+html, body {
+    justify-content: center;
+    align-items: center;
+    font-family: 'Source Code Pro', Consolas, monospace;
+    color: #b1b1b1;
+    background-color: #111111;
+  }
+
+a.link {color: cyan;}
+
+.container {
+    text-align: center;
+    display: block;
+  }
