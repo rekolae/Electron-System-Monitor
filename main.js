@@ -1,22 +1,33 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain, Menu } = require('electron')
 const path = require('path')
 
-function createWindow () {
-  // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
+const createWindow = () => {
+    // Create the browser window.
+    const mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js')
+        }
+    })
 
-  // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+    // and load the index.html of the app
+    mainWindow.loadFile('index.html')
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+    // Uncomment to open the DevTools on start
+    mainWindow.webContents.openDevTools()
+}
+
+
+const initMenu  = () => {
+    Menu.setApplicationMenu(null)
+}
+
+const initIPC = () => {
+    ipcMain.on("change-greeting", (event, greeting) => {
+        document.getElementById("greeting").innerText = greeting
+    })
 }
 
 // This method will be called when Electron has finished
@@ -24,6 +35,7 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
+  initMenu()
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -38,3 +50,4 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
+

@@ -6,10 +6,11 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
+    <script defer src="window.js"></script>
   </head>
   <body>
     <div id="app" class="container">
-      <h1>Hello World!</h1>
+      <h1 id="greeting">Hello World!</h1>
       <p>
         This is an app built using <a href="https://www.electronjs.org/" class="link">Electron</a> framework!
       </p>
@@ -17,6 +18,7 @@
       <p>Node.js <span id="node-version"></span></p>
       <p>Chromium <span id="chrome-version"></span></p>
       <p>Electron <span id="electron-version"></span></p>
+      <p>App is running on <span id="os"></span></p>
     </div>
   </body>
 </html>
