@@ -3,22 +3,34 @@ const { app, BrowserWindow, ipcMain, Menu } = require('electron')
 const path = require('path')
 
 const createWindow = () => {
+
+    // Default windows config
+    let [x, y, enableDevTools] = [600, 400, false]
+
+    // Change window config if in dev mode
+    if (process.env.APP_ENV === "development") {
+        [x, y, enableDevTools] = [1200, 800, true] 
+    }
+
     // Create the browser window.
     const mainWindow = new BrowserWindow({
         // Don't show the window until it's ready, this prevents any white flickering
         show: false,
-        width: 600,
-        height: 400,
+        width: x,
+        height: y,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
+            devTools: enableDevTools
         }
     })
 
     // and load the index.html of the app
     mainWindow.loadFile('index.html')
 
-    // Uncomment to open the DevTools on start
-    // mainWindow.webContents.openDevTools()
+    // Display DevTools if in dev mode
+    if (enableDevTools) {
+        mainWindow.webContents.openDevTools()
+    }
 
     // Display app when content is ready
     mainWindow.once('ready-to-show', () => {
