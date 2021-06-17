@@ -1,14 +1,40 @@
 html, body {
-    justify-content: center;
-    align-items: center;
-    font-family: 'Source Code Pro', Consolas, monospace;
-    color: #b1b1b1;
-    background-color: #111111;
-  }
+  justify-content: center;
+  align-items: center;
+  font-family: 'Source Code Pro', Consolas, monospace;
+  color: #b1b1b1;
+  background-color: #111111;
+}
 
-a.link {color: cyan;}
+h1#greeting {
+  cursor:pointer;
+}
+
+a.link {
+  color: cyan;
+}
 
 .container {
-    text-align: center;
-    display: block;
-  }
+  text-align: center;
+  display: block;
+}
+
+.fade-text-out {
+  animation-name: fade-out;
+  animation-duration: 0.6s;
+}
+
+.fade-text-in {
+  animation-name: fade-in;
+  animation-duration: 0.6s;
+}
+
+@keyframes fade-out {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
