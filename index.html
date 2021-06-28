@@ -4,24 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.fontawesome.com/; style-src 'self' https://*.fontawesome.com/; img-src 'self'; script-src 'self' ">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="window.js"></script>
+    <link rel="stylesheet" href="css/all.css"> <!-- Local font awesome file -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sidenav.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script defer src="js/renderer.js"></script>
+    <script defer src="js/sidenav.js"></script>
   </head>
   <body>
+    <div id="sidenav" class="is-minimized">
+      <ul id="nav-sections">
+        <li>
+            <i id="navToggleButton" class="fas fa-plus"></i>
+            <div id="hideText">Close</div>
+        </li>
+        <li id="monitorPage" class="section is-active">
+            <i class="fas fa-tachometer-alt"></i>
+            <div class="section-text">Monitor</div>
+        </li>
+        <li id="aboutPage" class="section">
+            <i class="fas fa-info"></i>
+            <div class="section-text">About</div>
+        </li>
+        <li id="contactPage" class="section">
+            <i class="fas fa-address-card"></i>
+            <div class="section-text">Contact</div>
+        </li>
+      </ul>
+    </div>
     <div id="app" class="container">
-      <h1 id="greeting">Hello! Try clicking me?</h1>
-      <p>
-        This is an app built using the <a href="https://www.electronjs.org/" class="link">Electron</a> framework!
-      </p>
-      <p>App is running on <span id="os"></span></p>
-      <p>Used software component versions:</p> 
-      <p>Node.js <span id="node-version"></span></p>
-      <p>Chromium <span id="chrome-version"></span></p>
-      <p>Electron <span id="electron-version"></span></p>
-      
     </div>
   </body>
 </html>

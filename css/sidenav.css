@@ -1,0 +1,55 @@
+#sidenav {
+  position: fixed;
+  height: 100%;
+  width: 50px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(34, 34, 34);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+#sidenav li {
+  cursor: pointer;
+}
+
+#navToggleButton {
+  color: #b1b1b1;
+  transform: rotate(0deg);
+  transition: 0.2s;
+}
+
+#sidenav ul{
+  margin-top: 20px;
+  padding: 0px;
+}
+
+#sidenav ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  list-style: none;
+  line-height: 50px;
+  margin: 5px 0;
+  display: flex;
+  border-radius: 10px;
+  transition: 0.15s;
+}
+
+#sidenav ul li i {
+  height: 50px;
+  min-width: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+#sidenav ul li:hover {
+  color: #000000;
+  background: #fff;
+}
+
+#sidenav .is-active {
+  color: #fff;
+  background: rgb(63, 63, 63);
+}
