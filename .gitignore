@@ -108,3 +108,6 @@ out
 
 # Debug/test files
 *.test.*
+
+# macOS stuff
+.DS_Store
