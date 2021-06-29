@@ -21,9 +21,9 @@ const loadScript = (page) => {
 }
 
 const loadPage = (page) => {
-    let section
+    let section = ""
 
-    switch (page) {
+    switch ($("li.is-active").first().attr("id")) {
         case "monitorPage":
             section = "monitor"
             break;
@@ -37,12 +37,31 @@ const loadPage = (page) => {
             break;
     }
 
-    $('#app').load("sections/" + section + ".html", () => {
+    $('#pageContent').load("sections/" + section + ".html", () => {
         loadScript(section)
-    });
+    })
+}
+
+const fadePage = () => {
+    let $content = $("#pageContent")
+
+    if ($content.hasClass("fade-content-out")) {
+        $content.removeClass("fade-content-out")
+
+        loadPage()
+
+        $content.addClass("fade-content-in")
+    }
+
+    // Text has been faded in
+    else {
+        $content.removeClass("fade-content-in is-changing")
+    }
 }
 
 // Load monitor page by default
-$('#app').load("sections/monitor.html", () => {
+$('#pageContent').load("sections/monitor.html", () => {
     loadScript("monitor")
 });
+
+$("#pageContent").on("animationend", fadePage)

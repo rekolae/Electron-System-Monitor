@@ -22,7 +22,7 @@ var randomizeGreeting = () => {
     let randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
 
     // If same greeting was randomized -> pick the next one!
-    if (randomGreeting === $("#greeting").textContent) {
+    if (randomGreeting === $("#greeting").text()) {
         newIndex = greetings.indexOf(randomGreeting) + 1
         
         // ... If out-of-bounds -> subtract two to pick the previous one!
@@ -37,28 +37,32 @@ var randomizeGreeting = () => {
 }
 
 function changeGreeting() {
+    let $greeting = $("#greeting")
+
     // Ignore click events when animation is underway
-    if ($("#greeting").hasClass("is-changing")) {
+    if ($greeting.hasClass("is-changing")) {
         return
     }
 
     // Start fade out animation
-    $("#greeting").addClass("is-changing fade-text-out")
+    $greeting.addClass("is-changing fade-text-out")
 }
 
 function fadeChange() {
+    let $greeting = $("#greeting")
+
     // Text has faded out
-    if ($("#greeting").hasClass("fade-text-out")) {
-        $("#greeting").removeClass("fade-text-out")
+    if ($greeting.hasClass("fade-text-out")) {
+        $greeting.removeClass("fade-text-out")
 
         // Change greeting text to a new one and start fade-in animation
-        $("#greeting").text(randomizeGreeting())
-        $("#greeting").addClass("fade-text-in")
+        $greeting.text(randomizeGreeting())
+        $greeting.addClass("fade-text-in")
     }
 
     // Text has been faded in
     else {
-        $("#greeting").removeClass("fade-text-in is-changing")
+        $greeting.removeClass("fade-text-in is-changing")
     }
 }
 

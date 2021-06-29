@@ -43,7 +43,7 @@ const setActivePage = (event) => {
     if (!oldActiveElement.is(newActiveElement)) {
         oldActiveElement.removeClass("is-active")
         newActiveElement.addClass("is-active")
-        loadPage(newActiveElement.attr("id"))
+        $("#pageContent").addClass("is-changing fade-content-out")
     }
 }
 

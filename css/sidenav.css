@@ -31,7 +31,7 @@
   width: 100%;
   list-style: none;
   line-height: 50px;
-  margin: 5px 0;
+  margin: 1px 0;
   display: flex;
   border-radius: 10px;
   transition: 0.15s;
@@ -52,4 +52,26 @@
 #sidenav .is-active {
   color: #fff;
   background: rgb(63, 63, 63);
+}
+
+#sidenav.is-minimized div {
+  animation-fill-mode: forwards;
+  animation-name: fade-out;
+  animation-duration: 0.5s;
+}
+
+#sidenav.is-maximized div {
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade-out {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

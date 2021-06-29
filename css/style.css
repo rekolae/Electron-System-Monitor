@@ -27,12 +27,24 @@ a.link {
 
 .fade-text-out {
   animation-name: fade-out;
-  animation-duration: 0.6s;
+  animation-duration: 0.35s;
 }
 
 .fade-text-in {
   animation-name: fade-in;
-  animation-duration: 0.6s;
+  animation-duration: 0.35s;
+}
+
+#pageContent.fade-content-out {
+  animation-fill-mode: forwards;
+  animation-name: fade-out;
+  animation-duration: 0.35s;
+}
+
+#pageContent.fade-content-in {
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+  animation-duration: 0.35s;
 }
 
 @keyframes fade-out {
