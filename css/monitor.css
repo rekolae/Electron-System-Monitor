@@ -1,0 +1,32 @@
+#stats {
+  margin: 20px 0px;
+}
+
+button {
+  color: #b1b1b1;
+  background-color: rgb(63, 63, 63);
+  border-radius: 4px;
+}
+
+#notice {
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #6e6e6e;
+}
+
+.hidden {
+  display: none;
+}
+
+#notice.show-notice {
+  animation-fill-mode: forwards;
+  animation-name: fade-in;
+  animation-duration: 0.35s;
+}
+  
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

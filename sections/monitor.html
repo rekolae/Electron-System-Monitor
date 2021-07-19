@@ -1,2 +1,17 @@
 <h1>Monitor page</h1>
 <div>TODO: Add gauges for monitoring</div>
+<div id="stats">
+  <div class="flex-box">
+    <div id="statsRAM" class="flex-child">RAM stats</div>
+  </div>
+  <div class="flex-box">
+    <div id="statsCPU" class="flex-child">CPU stats</div>
+  </div>
+</div>
+<div>
+  <button id="showRAM">RAM stats</button>
+  <button id="showCPU">CPU stats</button>
+</div>
+<div id="notice" class="hidden">
+  <p><sup>*</sup>MacOS reports "free" RAM as "available" RAM</p>
+</div>
