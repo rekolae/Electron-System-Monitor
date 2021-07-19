@@ -67,12 +67,12 @@ function fadeChange() {
 }
 
 // Insert OS info
-$("#os").text(window.about.os)
+$("#os").text(window.api.about.os)
 
 // Insert dependency versions to the html file
-$("#node-version").text(window.about.nodeVer)
-$("#chrome-version").text(window.about.chromeVer)
-$("#electron-version").text(window.about.electronVer)
+$("#node-version").text(window.api.about.nodeVer)
+$("#chrome-version").text(window.api.about.chromeVer)
+$("#electron-version").text(window.api.about.electronVer)
 
 // Event listeners
 $("#greeting").on("click", changeGreeting)

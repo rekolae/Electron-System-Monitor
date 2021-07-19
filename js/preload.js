@@ -1,3 +1,4 @@
+const { cpus, freemem, totalmem } = require('os');
 const { contextBridge } = require("electron");
 
 // Convert platform names to more well-known names
@@ -9,11 +10,22 @@ const osMap = {
 
 // Expose info gathered by using node modules
 contextBridge.exposeInMainWorld(
-	'about',
+	"api",
 	{
-	  os: osMap[process.platform],
-	  chromeVer: process.versions["chrome"],
-	  nodeVer: process.versions["node"],
-	  electronVer: process.versions["electron"]
+		about: {
+			os: osMap[process.platform],
+			chromeVer: process.versions["chrome"],
+			nodeVer: process.versions["node"],
+			electronVer: process.versions["electron"]
+		},
+		monitor: {
+			totalRAM: totalmem(),
+			getCPUs: () => (
+				cpus()
+			),
+			getFreeRAM: () => (
+				freemem()
+			)
+		}
 	}
 )
